@@ -362,6 +362,9 @@ static bool EnableOtherNormal, EnableOtherHeroic;
 // InflectionPoint*
 static float InflectionPoint, InflectionPointCurveFloor, InflectionPointCurveCeiling, InflectionPointBoss;
 static float InflectionPointHeroic, InflectionPointHeroicCurveFloor, InflectionPointHeroicCurveCeiling, InflectionPointHeroicBoss;
+// Warsong start
+static float InflectionPointHeroicCloth, InflectionPointHeroicCurveFloorCloth, InflectionPointHeroicCurveCeilingCloth, InflectionPointHeroicBossCloth;
+// Warsong end
 static float InflectionPointRaid, InflectionPointRaidCurveFloor, InflectionPointRaidCurveCeiling, InflectionPointRaidBoss;
 static float InflectionPointRaidHeroic, InflectionPointRaidHeroicCurveFloor, InflectionPointRaidHeroicCurveCeiling, InflectionPointRaidHeroicBoss;
 
@@ -1101,9 +1104,9 @@ AutoBalanceInflectionPointSettings getInflectionPointSettings (InstanceMap* inst
     {
         if (maxNumberOfPlayers <= 5)
         {
-            inflectionValue *= InflectionPointHeroic;
-            curveFloor = InflectionPointHeroicCurveFloor;
-            curveCeiling = InflectionPointHeroicCurveCeiling;
+            inflectionValue *= InflectionPointHeroicCloth;
+            curveFloor = InflectionPointHeroicCurveFloorCloth;
+            curveCeiling = InflectionPointHeroicCurveCeilingCloth;
         }
         else if (maxNumberOfPlayers <= 10)
         {
@@ -3162,6 +3165,13 @@ class AutoBalance_WorldScript : public WorldScript
         InflectionPointHeroicCurveCeiling =         sConfigMgr->GetOption<float>("AutoBalance.InflectionPointHeroic.CurveCeiling", 1.0f, false);
         InflectionPointHeroicBoss =                 sConfigMgr->GetOption<float>("AutoBalance.InflectionPointHeroic.BossModifier", sConfigMgr->GetOption<float>("AutoBalance.BossInflectionMult", 1.0f, false), false); // `AutoBalance.BossInflectionMult` for backwards compatibility
 
+        // Warsong start
+        InflectionPointHeroicCloth =                     sConfigMgr->GetOption<float>("AutoBalance.InflectionPointHeroicCloth", 0.5f, false);
+        InflectionPointHeroicCurveFloorCloth =           sConfigMgr->GetOption<float>("AutoBalance.InflectionPointHeroic.CurveFloorCloth", 0.0f, false);
+        InflectionPointHeroicCurveCeilingCloth =         sConfigMgr->GetOption<float>("AutoBalance.InflectionPointHeroic.CurveCeilingCloth", 1.0f, false);
+        InflectionPointHeroicBossCloth =                 sConfigMgr->GetOption<float>("AutoBalance.InflectionPointHeroic.BossModifierCloth", sConfigMgr->GetOption<float>("AutoBalance.BossInflectionMult", 1.0f, false), false); // `AutoBalance.BossInflectionMult` for backwards compatibility
+        // Warsong end
+        
         InflectionPointRaid =                       sConfigMgr->GetOption<float>("AutoBalance.InflectionPointRaid", 0.5f, false);
         InflectionPointRaidCurveFloor =             sConfigMgr->GetOption<float>("AutoBalance.InflectionPointRaid.CurveFloor", 0.0f, false);
         InflectionPointRaidCurveCeiling =           sConfigMgr->GetOption<float>("AutoBalance.InflectionPointRaid.CurveCeiling", 1.0f, false);

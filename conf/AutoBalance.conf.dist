@@ -181,6 +181,12 @@ AutoBalance.InflectionPointHeroic.CurveFloor=0.0
 AutoBalance.InflectionPointHeroic.CurveCeiling=1.0
 AutoBalance.InflectionPointHeroic.BossModifier=1.0
 
+### 5-player heroic dungeons for solo playing Cloth classes (Priest, Mage, Warlock)
+AutoBalance.InflectionPointHeroicCloth=0.5
+AutoBalance.InflectionPointHeroic.CurveFloorCloth=0.0
+AutoBalance.InflectionPointHeroic.CurveCeilingCloth=1.0
+AutoBalance.InflectionPointHeroic.BossModifierCloth=1.0
+
 ### Default for all raids
 AutoBalance.InflectionPointRaid=0.5
 AutoBalance.InflectionPointRaid.CurveFloor=0.0

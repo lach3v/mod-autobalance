@@ -1088,7 +1088,7 @@ bool isCreatureRelevant(Creature* creature) {
 
 }
 
-AutoBalanceInflectionPointSettings getInflectionPointSettings (InstanceMap* instanceMap, bool isBoss = false)
+AutoBalanceInflectionPointSettings getInflectionPointSettings (InstanceMap* instanceMap, bool isBoss = false, Player* player = nullptr)
 {
     uint32 maxNumberOfPlayers = instanceMap->GetMaxPlayers();
     uint32 mapId = instanceMap->GetEntry()->MapID;

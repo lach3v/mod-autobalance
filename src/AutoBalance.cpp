@@ -1088,7 +1088,7 @@ bool isCreatureRelevant(Creature* creature) {
 
 }
 
-void AutoBalanceInflectionPointSettings getInflectionPointSettings (InstanceMap* instanceMap, bool isBoss = false, Player* player = nullptr)
+AutoBalanceInflectionPointSettings getInflectionPointSettings (InstanceMap* instanceMap, bool isBoss = false, Player* player = nullptr)
 {
     uint32 maxNumberOfPlayers = instanceMap->GetMaxPlayers();
     uint32 mapId = instanceMap->GetEntry()->MapID;
@@ -1106,15 +1106,17 @@ void AutoBalanceInflectionPointSettings getInflectionPointSettings (InstanceMap*
         
         if ((maxNumberOfPlayers <= 5) && (player->getClass() == CLASS_PRIEST || player->getClass() == CLASS_MAGE || player->getClass() == CLASS_WARLOCK))
         {
-            if (!player)
-            {
-                return;
-            }
-            else 
-            {
+            if (player)
+            {      
                 inflectionValue *= InflectionPointHeroicCloth;
                 curveFloor = InflectionPointHeroicCurveFloorCloth;
                 curveCeiling = InflectionPointHeroicCurveCeilingCloth;
+            }
+            else
+            {
+                inflectionValue *= InflectionPointHeroic;
+                curveFloor = InflectionPointHeroicCurveFloor;
+                curveCeiling = InflectionPointHeroicCurveCeiling;
             }
         }
         else if (maxNumberOfPlayers <= 10)

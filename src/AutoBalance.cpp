@@ -1108,7 +1108,7 @@ AutoBalanceInflectionPointSettings getInflectionPointSettings (InstanceMap* inst
         {
             if (!player)
             {
-                return
+                return;
             }
             else 
             {

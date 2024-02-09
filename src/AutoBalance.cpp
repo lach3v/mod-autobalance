@@ -1103,7 +1103,7 @@ AutoBalanceInflectionPointSettings getInflectionPointSettings (InstanceMap* inst
     if (instanceMap->IsHeroic())
     {
     //    if (maxNumberOfPlayers <= 5)
-        if ((maxNumberOfPlayers <= 5) && (player->getClass() == CLASS_PRIEST || player->getClass() == CLASS_MAGE || player->getClass() == CLASS_WARLOCK))
+        if ((maxNumberOfPlayers <= 5) && (player->getClass() == CLASS_PRIEST) || (player->getClass() == CLASS_MAGE) || (player->getClass() == CLASS_WARLOCK))
         {
             inflectionValue *= InflectionPointHeroicCloth;
             curveFloor = InflectionPointHeroicCurveFloorCloth;
